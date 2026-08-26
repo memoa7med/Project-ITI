@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCare Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>🐾 PetCare Manager</h1>
+        <p>Veterinary Clinic Management System</p>
+    </header>
+
+    <nav>
+        <a href="#pets">Pets</a>
+        <a href="#add-pet">Add Pet</a>
+        <a href="#medications">Medications</a>
+    </nav>
+
+    <main>
+
+        <!-- Add Pet -->
+        <section id="add-pet" class="card">
+            <h2>Add a Pet</h2>
+
+            <form id="petForm">
+
+                <label for="petName">Pet Name</label>
+                <input type="text" id="petName" required>
+
+                <label for="petType">Pet Type</label>
+                <select id="petType" required>
+                    <option value="">Choose type</option>
+                    <option value="Dog">Dog</option>
+                    <option value="Cat">Cat</option>
+                    <option value="Bird">Bird</option>
+                    <option value="Turtle">Turtle</option>
+                </select>
+
+                <label for="petAge">Age</label>
+                <input type="number" id="petAge" min="0" required>
+
+                <label for="ownerName">Owner Name</label>
+                <input type="text" id="ownerName" required>
+
+                <button type="submit">Add Pet</button>
+
+            </form>
+        </section>
+
+
+        <!-- Search -->
+        <section class="card">
+            <h2>Search Pets</h2>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search by pet name..."
+            >
+        </section>
+
+
+        <!-- Pets -->
+        <section id="pets" class="card">
+
+            <h2>My Pets</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Age</th>
+                        <th>Owner</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="petsTableBody">
+                </tbody>
+            </table>
+
+        </section>
+
+
+        <!-- Medications -->
+        <section id="medications" class="card">
+
+            <h2>Add Medication</h2>
+
+            <form id="medicationForm">
+
+                <label for="medName">Medication Name</label>
+                <input type="text" id="medName" required>
+
+                <label for="medPet">Pet ID</label>
+                <input type="number" id="medPet" required>
+
+                <label for="dose">Dose</label>
+                <input type="text" id="dose" placeholder="e.g. 2 tablets" required>
+
+                <label for="medDate">Date</label>
+                <input type="date" id="medDate" required>
+
+                <button type="submit">Add Medication</button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Statistics -->
+        <section class="card">
+
+            <h2>Statistics</h2>
+
+            <div class="stats">
+
+                <div>
+                    <h3 id="petCount">0</h3>
+                    <p>Total Pets</p>
+                </div>
+
+                <div>
+                    <h3 id="medCount">0</h3>
+                    <p>Total Medications</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 PetCare Manager</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
